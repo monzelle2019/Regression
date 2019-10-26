@@ -1,0 +1,47 @@
+---
+title: "Regression"
+author: "Glen Abram"
+date: "October 26, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+Simsdata=read.csv("Book1.csv")
+```
+```{r}
+Model1=lm(SIMS~ARM,data=Simsdata) 
+summary(Model1)
+```
+Prediction  
+```{r}
+X=data.frame(GRIP=94,ARM=88)
+predict(Model1,X)
+predict.lm(Model1,X,interval="prediction")
+```
+`X=data.frame(GRIP=94,ARM=88)
+predict(Model3,X)
+predict.lm(Model,X,interval="prediction"``{r}
+
+```{r}
+Model2=lm(SIMS~GRIP,data=Simsdata) 
+summary(Model2)
+
+predict(Model2,X)
+predict.lm(Model2,X,interval="prediction")
+```
+
+
+```{r}
+Model3=lm(SIMS~GRIP+ARM,data=Simsdata) 
+summary(Model3)
+
+predict(Model3,X)
+predict.lm(Model3,X,interval="prediction")
+```
+
+
